@@ -71,7 +71,7 @@ class ClubList extends React.Component{
 
     return clubs.map((clubs, index) => (
       <div key={index}>
-        <h3>{clubs.club}</h3>
+        <h1>{clubs.club}</h1>
         <p>{clubs.city}</p>
         <p>{clubs.league_titles}</p>
         <p>{clubs.founded}</p>
