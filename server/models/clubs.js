@@ -1,0 +1,15 @@
+const mongoose = require('mongoose');
+
+// Schema
+const Schema = mongoose.Schema;
+const PremierLeagueSchema = new Schema({
+    club: String,
+    city: String,
+    league_titles: String,
+    founded: String,
+});
+
+//Model
+const Club = mongoose.model('clubs', PremierLeagueSchema);
+
+module.exports = Club;
