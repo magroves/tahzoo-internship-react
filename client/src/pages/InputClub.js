@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Header from '../partials/Header';
 
 
 //edit to fix client folder
@@ -57,7 +58,10 @@ class InputClub extends React.Component{
     console.log('State: ', this.state);
     //JSX
     return(
-      <div>
+      <div className="flex flex-col min-h-screen overflow-hidden">
+        <Header />
+        <br></br>
+        <br></br>
         <h2>Club Input Form</h2>
         <form onSubmit={this.submit}>
           <div className="form-input">

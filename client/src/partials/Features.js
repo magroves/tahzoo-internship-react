@@ -30,8 +30,8 @@ function Features() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-            <h1 className="h2 mb-4">Explore the league</h1>
-            <p className="text-xl text-gray-600">Check out all the teams, cities, trophies, and more!</p>
+            <h1 className="h2 mb-4">Project Outlook</h1>
+            <p className="text-xl text-gray-600">What we've done, plan to do, and more!</p>
           </div>
 
           {/* Section content */}

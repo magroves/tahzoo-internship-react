@@ -13,8 +13,8 @@ function FeaturesBlocks() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 mb-4">How Simple works</h2>
-            <p className="text-xl text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat.</p>
+            <h2 className="h2 mb-4">Explore the League</h2>
+            <p className="text-xl text-gray-600">Check out all the teams, cities, trophies, and more!</p>
           </div>
 
           {/* Items */}
@@ -22,99 +22,155 @@ function FeaturesBlocks() {
 
             {/* 1st item */}
             <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-              <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/Arsenal-Logo.png')} width="125" height="125" alt="arsenal" />
+              {/* <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fillRule="evenodd">
-                  <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
+                    <rect className="fill-current text-red-600" width="64" height="64" rx="32" />           
                   <g strokeWidth="2">
                     <path className="stroke-current text-blue-300" d="M34.514 35.429l2.057 2.285h8M20.571 26.286h5.715l2.057 2.285" />
                     <path className="stroke-current text-white" d="M20.571 37.714h5.715L36.57 26.286h8" />
-                    <path className="stroke-current text-blue-300" strokeLinecap="square" d="M41.143 34.286l3.428 3.428-3.428 3.429" />
+                    // <path className="stroke-current text-blue-300" strokeLinecap="square" d="M41.143 34.286l3.428 3.428-3.428 3.429" />
                     <path className="stroke-current text-white" strokeLinecap="square" d="M41.143 29.714l3.428-3.428-3.428-3.429" />
                   </g>
                 </g>
-              </svg>
-              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Initial Contact</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </svg> */}
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Arsenal</h4>
+              <p className="text-gray-600 text-center"></p>
             </div>
 
             {/* 2nd item */}
             <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-              <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" fillRule="evenodd">
-                  <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
-                  <g strokeWidth="2" transform="translate(19.429 20.571)">
-                    <circle className="stroke-current text-white" strokeLinecap="square" cx="12.571" cy="12.571" r="1.143" />
-                    <path className="stroke-current text-white" d="M19.153 23.267c3.59-2.213 5.99-6.169 5.99-10.696C25.143 5.63 19.514 0 12.57 0 5.63 0 0 5.629 0 12.571c0 4.527 2.4 8.483 5.99 10.696" />
-                    <path className="stroke-current text-blue-300" d="M16.161 18.406a6.848 6.848 0 003.268-5.835 6.857 6.857 0 00-6.858-6.857 6.857 6.857 0 00-6.857 6.857 6.848 6.848 0 003.268 5.835" />
-                  </g>
-                </g>
-              </svg>
-              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Discovery Session</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/AstonVillaLogo.png')} width="50" height="50" alt="aston villa" />
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Aston Villa</h4>
+              <p className="text-gray-600 text-center"></p>
             </div>
 
             {/* 3rd item */}
             <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-              <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" fillRule="evenodd">
-                  <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
-                  <g strokeLinecap="square" strokeWidth="2">
-                    <path className="stroke-current text-blue-300" d="M38.826 22.504a9.128 9.128 0 00-13.291-.398M35.403 25.546a4.543 4.543 0 00-6.635-.207" />
-                    <path className="stroke-current text-white" d="M19.429 25.143A6.857 6.857 0 0126.286 32v1.189L28 37.143l-1.714.571V40A2.286 2.286 0 0124 42.286h-2.286v2.285M44.571 25.143A6.857 6.857 0 0037.714 32v1.189L36 37.143l1.714.571V40A2.286 2.286 0 0040 42.286h2.286v2.285" />
-                  </g>
-                </g>
-              </svg>
-              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Contracting</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/Brighton-logo.png')} width="70" height="70" alt="brighton" />
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Brighton</h4>
+              <p className="text-gray-600 text-center"></p>
             </div>
 
             {/* 4th item */}
             <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-              <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" fillRule="evenodd">
-                  <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
-                  <g transform="translate(22.857 19.429)" strokeWidth="2">
-                    <path className="stroke-current text-white" strokeLinecap="square" d="M12.571 4.571V0H0v25.143h12.571V20.57" />
-                    <path className="stroke-current text-white" d="M16 12.571h8" />
-                    <path className="stroke-current text-white" strokeLinecap="square" d="M19.429 8L24 12.571l-4.571 4.572" />
-                    <circle className="stroke-current text-blue-300" strokeLinecap="square" cx="12.571" cy="12.571" r="3.429" />
-                  </g>
-                </g>
-              </svg>              
-              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Fast Prototyping</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/Burnley-logo.png')} width="125" height="125" alt="burnley" />             
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Burnley</h4>
+              <p className="text-gray-600 text-center"></p>
             </div>
 
             {/* 5th item */}
             <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-              <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" fillRule="evenodd">
-                  <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
-                  <g strokeLinecap="square" strokeWidth="2">
-                    <path className="stroke-current text-white" d="M20.571 20.571h13.714v17.143H20.571z" />
-                    <path className="stroke-current text-blue-300" d="M38.858 26.993l6.397 1.73-4.473 16.549-13.24-3.58" />
-                  </g>
-                </g>
-              </svg>
-              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Design Phase</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/chelsea-logo.png')} width="70" height="70" alt="chelsea" />
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Chelsea</h4>
+              <p className="text-gray-600 text-center"></p>
             </div>
 
             {/* 6th item */}
             <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-              <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <g fill="none" fillRule="evenodd">
-                  <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
-                  <g strokeWidth="2">
-                    <path className="stroke-current text-white" d="M32 37.714A5.714 5.714 0 0037.714 32a5.714 5.714 0 005.715 5.714" />
-                    <path className="stroke-current text-white" d="M32 37.714a5.714 5.714 0 015.714 5.715 5.714 5.714 0 015.715-5.715M20.571 26.286a5.714 5.714 0 005.715-5.715A5.714 5.714 0 0032 26.286" />
-                    <path className="stroke-current text-white" d="M20.571 26.286A5.714 5.714 0 0126.286 32 5.714 5.714 0 0132 26.286" />
-                    <path className="stroke-current text-blue-300" d="M21.714 40h4.572M24 37.714v4.572M37.714 24h4.572M40 21.714v4.572" strokeLinecap="square" />
-                  </g>
-                </g>
-              </svg>
-              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Develop & Launch</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/crystalpalace-logo.png')} width="55" height="55" alt="crystal palace" />
+              <p className="text-gray-600 text-center"></p>
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Crystal Palace</h4>
+              <p className="text-gray-600 text-center"></p>
+            </div>
+
+            {/* 7th item */}
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/everton-logo.png')} width="70" height="70" alt="everton" />
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Everton</h4>
+              <p className="text-gray-600 text-center"></p>
+            </div>
+
+            {/* 8th item */}
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/fulham-logo.png')} width="55" height="55" alt="fulham" />
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Fulham</h4>
+              <p className="text-gray-600 text-center"></p>
+            </div>
+
+            {/* 9th item */}
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/leeds-logo.png')} width="63" height="63" alt="leeds united" />
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Leeds United</h4>
+              <p className="text-gray-600 text-center"></p>
+            </div>
+
+            {/* 10th item */}
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/leicester-logo.png')} width="70" height="70" alt="leicester city" />            
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Leicester City</h4>
+              <p className="text-gray-600 text-center"></p>
+            </div>
+
+            {/* 11th item */}
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/liverpool-logo.png')} width="55" height="55" alt="liverpool" />
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Liverpool</h4>
+              <p className="text-gray-600 text-center"></p>
+            </div>
+
+            {/* 12th item */}
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/mancity-logo.png')} width="70" height="70" alt="manchester city" />
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Manchester City</h4>
+              <p className="text-gray-600 text-center"></p>
+            </div>
+
+            {/* 13th item */}
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/manutd-logo.png')} width="70" height="70" alt="manchester united" />
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Manchester United</h4>
+              <p className="text-gray-600 text-center"></p>
+            </div>
+
+            {/* 14th item */}
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/newcastleutdlogo.png')} width="70" height="70" alt="newcastle united" />           
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Newcastle United</h4>
+              <p className="text-gray-600 text-center"></p>
+            </div>
+
+            {/* 15th item */}
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/sheffiled-logo.png')} width="70" height="70" alt="shefiled united" />
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Sheffield United</h4>
+              <p className="text-gray-600 text-center"></p>
+            </div>
+
+            {/* 16th item */}
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/southampton-logo.png')} width="63" height="63" alt="southampton" />
+              <p className="text-gray-600 text-center"></p>
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Southampton</h4>
+              <p className="text-gray-600 text-center"></p>
+            </div>
+
+            {/* 17th item */}
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/tottenham-logo.png')} width="35" height="35" alt="tottenham hotspur" />
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Tottenham Hotspur</h4>
+              <p className="text-gray-600 text-center"></p>
+            </div>
+
+            {/* 18th item */}
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/westbrom-logo.png')} width="60" height="60" alt="west bromwich albion" />
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">West Bromwich Albion</h4>
+              <p className="text-gray-600 text-center"></p>
+            </div>
+
+            {/* 19th item */}
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/westham-logo.png')} width="63" height="63" alt="west ham united" />
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">West Ham United</h4>
+              <p className="text-gray-600 text-center"></p>
+            </div>
+
+            {/* 20th item */}
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+            <img className="md:max-w-none mx-auto rounded" src={require('../images/wolves-logo.png')} width="70" height="70" alt="wolverhampton wanderers" />           
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Wolverhampton Wanderers</h4>
+              <p className="text-gray-600 text-center"></p>
             </div>
 
           </div>
