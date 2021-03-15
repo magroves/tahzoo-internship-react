@@ -86,13 +86,13 @@ class ClubList extends React.Component{
         <div className="clubs">
           <h1>Premier League Clubs</h1>
 
-          <table class="zigzag">
+          <table id="table-clubs">
             <thead>
               <tr>
-                <th class="header">Club</th>
-                <th class="header">City</th>
-                <th class="header">League Titles</th>
-                <th class="header">Founded</th>
+                <th>Club</th>
+                <th>City</th>
+                <th>League Titles</th>
+                <th>Founded</th>
               </tr>
             </thead>
 
