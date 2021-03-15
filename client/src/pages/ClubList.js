@@ -14,31 +14,8 @@ class ClubList extends React.Component{
     clubs: []
   };
 
-  // sorted(club1, club2) {
-  //   club1 = club1.toLowerCase();
-  //   club2 = club2.toLowerCase();
-
-  //   return (club1 < club2) ? -1 : (club1 > club2) ? 1 : 0;
-  // }
-
-  // async sortClubs() {
-  //   const sortedClubs = this.state.clubs;
-
-  //   console.log(sortedClubs);
-
-  //   sortedClubs.sort(function(club1, club2) {
-  //     club1 = club1.toLowerCase();
-  //     club2 = club2.toLowerCase();
-  
-  //     return (club1 < club2) ? -1 : (club1 > club2) ? 1 : 0;
-  //   });
-  //   this.setState({clubs:sortedClubs});
-  //   console.log(this.state.clubs);
-  // }
-
   async componentDidMount() {
     await this.getClubs();
-    // await this.sortClubs();
   };
 
   async getClubs() { 
@@ -97,7 +74,7 @@ class ClubList extends React.Component{
             </thead>
 
             <tbody>
-              {clubs.map((clubs, index) => {
+              {this.state.clubs.map((clubs, index) => {
                 return (
                   <Fragment>
                     <tr>
