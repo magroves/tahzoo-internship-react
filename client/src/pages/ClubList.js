@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Header from '../partials/Header';
+import { Fragment } from 'react';
 
 //edit to fix client folder
 
@@ -14,8 +14,31 @@ class ClubList extends React.Component{
     clubs: []
   };
 
+  // sorted(club1, club2) {
+  //   club1 = club1.toLowerCase();
+  //   club2 = club2.toLowerCase();
+
+  //   return (club1 < club2) ? -1 : (club1 > club2) ? 1 : 0;
+  // }
+
+  // async sortClubs() {
+  //   const sortedClubs = this.state.clubs;
+
+  //   console.log(sortedClubs);
+
+  //   sortedClubs.sort(function(club1, club2) {
+  //     club1 = club1.toLowerCase();
+  //     club2 = club2.toLowerCase();
+  
+  //     return (club1 < club2) ? -1 : (club1 > club2) ? 1 : 0;
+  //   });
+  //   this.setState({clubs:sortedClubs});
+  //   console.log(this.state.clubs);
+  // }
+
   async componentDidMount() {
     await this.getClubs();
+    // await this.sortClubs();
   };
 
   async getClubs() { 
@@ -29,7 +52,7 @@ class ClubList extends React.Component{
         club2 = club2.club.toLowerCase();
   
         return (club1 < club2) ? -1 : (club1 > club2) ? 1 : 0;
-      });
+      }); 
       console.log('Data has been received!!');
       this.setState({clubs: data});
     })
@@ -59,12 +82,39 @@ class ClubList extends React.Component{
 
   render() {
     return(
-      <div className="flex flex-col min-h-screen overflow-hidden">
-        <Header />
+      <div>
         <div className="clubs">
-          {this.displayClubs(this.state.clubs)}
+          <h1>Premier League Clubs</h1>
+
+          <table class="zigzag">
+            <thead>
+              <tr>
+                <th class="header">Club</th>
+                <th class="header">City</th>
+                <th class="header">League Titles</th>
+                <th class="header">Founded</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {clubs.map((clubs, index) => {
+                return (
+                  <Fragment>
+                    <tr>
+                      <td>{clubs.club}</td>
+                      <td>{clubs.city}</td>
+                      <td>{clubs.league_titles}</td>
+                      <td>{clubs.founded}</td>
+                    </tr>
+                  </Fragment>
+                );
+              })}
+            </tbody>
+            
+          </table>
         </div>
-      </div>     
+      </div>  
+      
     );
   }
 }
