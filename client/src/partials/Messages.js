@@ -69,16 +69,15 @@ class Suggestions extends React.Component{
                     <div className="text-center pb-12 md:pb-16">
                         <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out"><span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-400">Website Suggestions</span></h1>
                         <div className="max-w-3xl mx-auto">
-                            <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300">
-                            </div>
+                            <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300"></div>
                         </div>
-                        </div>
+                    </div>
                     </div>
                         <div className="flex flex-col min-h-screen overflow-hidden">
                             <div className="text-center pb-12 md:pb-16">
-                                <div className="text-4xl md:text-6=3xl font-extrabold leading-tighter tracking-tighter mb-4">
-                                    <ul>
-                                        <li>{this.displayMessages(this.state.messages)}</li>
+                                <div className="text-2xl md:text-6=3xl font-extrabold leading-tighter tracking-tighter mb-4">
+                                    <ul className="text-m">
+                                        <li className="mb-2">{this.displayMessages(this.state.messages)}</li>
                                     </ul>                          
                                 </div>
                             </div>
