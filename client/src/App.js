@@ -13,6 +13,7 @@ import { focusHandling } from 'cruip-js-toolkit';
 import Home from './pages/Home';
 import ClubList from './pages/ClubList';
 import InputClub from './pages/InputClub';
+import Suggestions from './pages/Suggestions';
 
 function App() {
 
@@ -45,6 +46,9 @@ function App() {
         </Route>
         <Route path="/inputclub">
           <InputClub />
+        </Route>
+        <Route path="/suggestions">
+          <Suggestions />
         </Route>
       </Switch>
     </>

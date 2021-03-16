@@ -35,7 +35,7 @@ function HeroHome() {
               <p className="text-xl text-black-600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">Welcome to our premier league website using our own api/database</p>
               <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300">
                 <div>
-                  <a className="btn text-white bg-red-700 hover:bg-orange-600 w-full mb-4 sm:w-auto sm:mb-0" href="http://localhost:8080/api" target="_blank" rel="noopener noreferrer">API</a>
+                  <a className="btn text-white bg-red-700 hover:bg-orange-600 w-full mb-4 sm:w-auto sm:mb-0" href="http://localhost:8080/api/clubs" target="_blank" rel="noopener noreferrer">API</a>
                 </div>
                 <div>
                   <a className="btn text-white bg-orange-600 hover:bg-red-700 w-full sm:w-auto sm:ml-4" href="#0">Learn more</a>

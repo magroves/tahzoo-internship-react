@@ -55,7 +55,7 @@ function Footer() {
                 <Link to="#" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Who We Are</Link>
               </li>
               <li className="mb-2">
-                <Link to="#" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Suggestions</Link>
+                <Link to="/suggestions" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Suggestions</Link>
               </li>
               <li className="mb-2">
                 <Link to="#" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Goals</Link>
