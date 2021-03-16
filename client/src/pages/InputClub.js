@@ -31,7 +31,7 @@ class InputClub extends React.Component{
     };
 
     axios ({
-      url:'/api/save',
+      url:'/api/clubs',
       method: 'POST',
       data: payload
     })

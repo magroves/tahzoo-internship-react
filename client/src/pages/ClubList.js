@@ -19,7 +19,7 @@ class ClubList extends React.Component{
   };
 
   async getClubs() { 
-    axios.get('/api')
+    axios.get('/api/clubs')
     .then((response) => {
       const data = response.data;
       const sortedClubs = data;
