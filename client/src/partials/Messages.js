@@ -34,7 +34,10 @@ class Suggestions extends React.Component{
     
         return messages.map((messages, index) => (
           <div key={index}>
-            <h1>{messages.message}</h1>
+            <ul>
+              <li>{messages.message}</li>
+            </ul>
+            <br></br>
           </div>
         ))
       };

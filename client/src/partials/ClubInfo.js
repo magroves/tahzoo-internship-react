@@ -1,64 +1,72 @@
 import React from 'react';
 import axios from 'axios';
 
-class ClubInfo extends React.Component {
+//originally used to load pop-up screens on featureblocks... currently not in use
+
+class ClubInfo extends React.Component{
 
     state = {
-        club: '',
-        city: '',
-        league_titles: '',
-        founded: '',
-        clubs: []
-    };
-    
-    componentDidMount() {
-        this.getClubs();
-    };
-    
-    getClubs() { 
-        axios.get('/api/clubs')
-        .then((response) => {
-          const data = response.data;
-          const sortedClubs = data;
-    
-          sortedClubs.sort(function(club1, club2) {
-            club1 = club1.club.toLowerCase();
-            club2 = club2.club.toLowerCase();
-      
-            return (club1 < club2) ? -1 : (club1 > club2) ? 1 : 0;
-          });
-          console.log('Data has been received!!');
-          this.setState({clubs: data});
-        })
-        .catch((error) => {
-          console.log(error);
-          alert('Error');
-        });
-    }
-    
-    handleChange = ({target}) => {
-        const { name, value } = target;
-        this.setState({[name]: value})
-    };
-    
-    displayClubs = (clubs) => {
-        if (!clubs.length) return null;
-    
-        return clubs.map((clubs, index) => (
-          <div key={index}>
-            <h1>{clubs.club}</h1>
-            <p>{clubs.city}</p>
-            <p>{clubs.league_titles}</p>
-            <p>{clubs.founded}</p>
-          </div>
-        ))
+      club: '',
+      city: '',
+      league_titles: '',
+      founded: '',
+      clubs: [],
+      showModal: false,
+      setShowModal: false
     };
 
+    setShowModal = (e) => {
+        this.setState({ showModal: e})
+      }
+  
+    async componentDidMount() {
+      await this.getClubs();
+    };
+  
+    async getClubs() { 
+      axios.get('/api/clubs')
+      .then((response) => {
+        const data = response.data;
+        const sortedClubs = data;
+  
+        sortedClubs.sort(function(club1, club2) {
+          club1 = club1.club.toLowerCase();
+          club2 = club2.club.toLowerCase();
     
-render(){   
-    const [showModal, setShowModal] = React.useState(false);
-        return (
-            
+          return (club1 < club2) ? -1 : (club1 > club2) ? 1 : 0;
+        });
+        console.log('Data has been received!!');
+        this.setState({clubs: data});
+      })
+      .catch((error) => {
+        console.log(error);
+        alert('Error');
+      });
+    }
+  
+    handleChange = ({target}) => {
+      const { name, value } = target;
+      this.setState({[name]: value})
+    };
+  
+    displayClubs = (clubs) => {
+      if (!clubs.length) return null;
+  
+      return clubs.map((clubs, index) => (
+        <div key={index}>
+          <h1>{clubs.club}</h1>
+          <p>{clubs.city}</p>
+          <p>{clubs.league_titles}</p>
+          <p>{clubs.founded}</p>
+        </div>
+      ),
+      console.log(clubs));
+    };
+
+    // const [showModal, setShowModal] = React.useState(false);
+
+render(){
+        return (       
             <div>
             {/*Modal Pop-Up Menu*/}
             <>
@@ -66,15 +74,15 @@ render(){
             className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
             type="button"
             style={{ transition: "all .15s ease" }}
-            onClick={() => setShowModal(true)}
+            onClick={() => this.setShowModal(true)}
             >
             Arsenal
             </button>
-            {showModal ? (
+            {this.state.showModal ? (
             <>
                 <div
                 className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
-                onClick={() => setShowModal(false)}
+                onClick={() => this.setShowModal(false)}
                 >
                 <div className="relative w-auto my-6 mx-auto max-w-3xl">
                     {/*content*/}
@@ -86,7 +94,7 @@ render(){
                         </h3>
                         <button
                         className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                        onClick={() => setShowModal(false)}
+                        onClick={() => this.setShowModal(false)}
                         >
                         <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
                             ×
@@ -96,7 +104,7 @@ render(){
                     {/*body*/}
                     <div className="relative p-6 flex-auto">
                         <p className="my-4 text-gray-600 text-lg leading-relaxed">
-                        
+                            {this.displayClubs(this.state.clubs)}
                         </p>
                     </div>
                     {/*footer*/}
@@ -105,7 +113,7 @@ render(){
                         className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
                         type="button"
                         style={{ transition: "all .15s ease" }}
-                        onClick={() => setShowModal(false)}
+                        onClick={() => this.setShowModal(false)}
                         >
                         Close
                         </button>
@@ -113,7 +121,7 @@ render(){
                         className="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                         type="button"
                         style={{ transition: "all .15s ease" }}
-                        onClick={() => setShowModal(false)}
+                        onClick={() => this.setShowModal(false)}
                         >
                         Save Changes
                         </button>
