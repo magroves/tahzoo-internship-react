@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { Fragment } from 'react';
-
+import ClubTable from '../partials/ClubTable';
+import Header from '../partials/Header';
+import Footer from '../partials/Footer';
 //edit to fix client folder
 
 class ClubList extends React.Component{
@@ -44,56 +45,23 @@ class ClubList extends React.Component{
     this.setState({[name]: value})
   };
 
-  displayClubs = (clubs) => {
-    if (!clubs.length) return null;
-
-    return clubs.map((clubs, index) => (
-      <div key={index}>
-        <h1>{clubs.club}</h1>
-        <p>{clubs.city}</p>
-        <p>{clubs.league_titles}</p>
-        <p>{clubs.founded}</p>
-      </div>
-    ))
-  };
-
   render() {
-    return(
-      <div>
-        <div className="clubs">
-          <h1>Premier League Clubs</h1>
+    return (
+     <div className="flex flex-col min-h-screen overflow-hidden">
+      {/*  Site header */}
+      <Header />
 
-          <table id="table-clubs">
-            <thead>
-              <tr>
-                <th>Club</th>
-                <th>City</th>
-                <th>League Titles</th>
-                <th>Founded</th>
-              </tr>
-            </thead>
+        {/*  Page content */}
+        <main className="flex-grow">
+          {/*  Page sections */}
+          <ClubTable table = {this.state.clubs} />
 
-            <tbody>
-              {this.state.clubs.map((clubs, index) => {
-                return (
-                  <Fragment>
-                    <tr>
-                      <td>{clubs.club}</td>
-                      <td>{clubs.city}</td>
-                      <td>{clubs.league_titles}</td>
-                      <td>{clubs.founded}</td>
-                    </tr>
-                  </Fragment>
-                );
-              })}
-            </tbody>
-            
-          </table>
-        </div>
-      </div>  
-      
-    );
-  }
+        </main>
+
+        {/*  Site footer */}
+        <Footer />
+    </div>
+  );}
 }
 
 export default ClubList;
