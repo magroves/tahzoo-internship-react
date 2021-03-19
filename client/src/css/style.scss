@@ -45,6 +45,11 @@
     background: white;  
   }
 
+  .error {
+    color:#db2269;
+    display: relative;
+  }
+
 // AOS styles
 $aos-distance: 10px;
 @import 'node_modules/aos/src/sass/aos.scss';

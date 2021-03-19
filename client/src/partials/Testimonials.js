@@ -87,7 +87,7 @@ function Testimonials() {
                 </blockquote>
                 <cite className="block font-bold text-lg not-italic mb-1">Noah Weingand</cite>
                 <div className="text-gray-600">
-                  <span>Associate Developer & Intern Director</span> <a className="text-red-600 hover:underline" href="#0">@Tahzoo</a>
+                  <span>Associate Developer & Intern Manager</span> <a className="text-red-600 hover:underline" href="#0">@Tahzoo</a>
                 </div>
               </div>
 

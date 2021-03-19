@@ -14,6 +14,7 @@ import Home from './pages/Home';
 import ClubList from './pages/ClubList';
 import InputClub from './pages/InputClub';
 import Suggestions from './pages/Suggestions';
+import Test from './pages/Test';
 
 function App() {
 
@@ -49,6 +50,9 @@ function App() {
         </Route>
         <Route path="/suggestions">
           <Suggestions />
+        </Route>
+        <Route path="/test">
+          <Test />
         </Route>
       </Switch>
     </>

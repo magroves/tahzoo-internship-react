@@ -17,9 +17,9 @@ class FeaturesBlocks extends React.Component{
         this.setState({ showModal: e})
     };
 
-    setClub = (club) => {
-        this.setState(club === "Arsenal");
-    };
+    setClub = () => {
+      this.setState({club: ""})
+    }
   
     async componentDidMount() {
       await this.getClubs();
@@ -57,30 +57,30 @@ class FeaturesBlocks extends React.Component{
       return clubs.map((clubs, index) => (
         <div key={index}>
           <h1>{clubs.club}</h1>
-          {/* <p>{clubs.city}</p>
+          <p>{clubs.city}</p>
           <p>{clubs.league_titles}</p>
-          <p>{clubs.founded}</p> */}
+          <p>{clubs.founded}</p>
         </div>
       ))
     };
 
-    individualClub = (clubs) => {
-      if (!clubs.length) return null;
+    /*map (
+      <h1> clubs.club>
+      <ClubModal clubFounded={club.Founded} clubLeague = {club.league}>
+    )
+    
+    ClubModal extends Component (
 
-      if(clubs.club === "Arsenal"){
-        return clubs.map((clubs, index) => (
-            <div key={index}>
-            <h1>{clubs.club}</h1>
-            <p>{clubs.city}</p>
-            <p>{clubs.league_titles}</p>
-            <p>{clubs.founded}</p>
-          </div>
-        ))
+      //modal logic
+
+      render() {
+        {this.props.clubFounded}
       }
-    };
+    )
+    */
 
 render(){
-    return (
+    return ( 
       <section className="relative">
 
         {/* Section background (needs .relative class on parent and next sibling elements) */}
@@ -103,21 +103,10 @@ render(){
               <button
                 type="button"
                 style={{ transition: "all .15s ease" }}
-                onClick={() => {this.setShowModal(true); this.setClub();}}
+                onClick={() => {this.setShowModal(true); this.setClub("Arsenal");}}
               >
                 <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
                 <img className="md:max-w-none mx-auto rounded" src={require('../images/Arsenal-Logo.png')} width="125" height="125" alt="arsenal" />
-                  {/* <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                    <g fill="none" fillRule="evenodd">
-                        <rect className="fill-current text-red-600" width="64" height="64" rx="32" />           
-                      <g strokeWidth="2">
-                        <path className="stroke-current text-blue-300" d="M34.514 35.429l2.057 2.285h8M20.571 26.286h5.715l2.057 2.285" />
-                        <path className="stroke-current text-white" d="M20.571 37.714h5.715L36.57 26.286h8" />
-                        // <path className="stroke-current text-blue-300" strokeLinecap="square" d="M41.143 34.286l3.428 3.428-3.428 3.429" />
-                        <path className="stroke-current text-white" strokeLinecap="square" d="M41.143 29.714l3.428-3.428-3.428-3.429" />
-                      </g>
-                    </g>
-                  </svg> */}
                   <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Arsenal</h4>
                   <p className="text-gray-600 text-center"></p>
                 </div>
@@ -156,7 +145,7 @@ render(){
                 onClick={() => this.setShowModal(true)}
               >
               <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-              <img className="md:max-w-none mx-auto rounded" src={require('../images/Burnley-logo.png')} width="125" height="125" alt="burnley" />             
+              <img className="md:max-w-none mx-auto rounded" src={require('../images/Burnleylogo.png')} width="125" height="125" alt="burnley" />             
                 <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Burnley</h4>
                 <p className="text-gray-600 text-center"></p>
               </div>
@@ -388,7 +377,8 @@ render(){
                     {/*header*/}
                     <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
                         <h3 className="text-3xl font-semibold">
-                        {this.individualClub(this.state.clubs)}
+                        {/* {this.displayClubs(this.state.clubs)} */}
+                        Display Club Name Here...
                         </h3>
                         <button
                         className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -403,19 +393,11 @@ render(){
                     <div className="relative p-6 flex-auto">
                         <p className="my-4 text-gray-600 text-lg leading-relaxed">
                             Display individual club information here...
-                            {this.displayClubs(this.state.club)}
+                            {this.displayClubs(this.state.clubs)}
                         </p>
                     </div>
                     {/*footer*/}
                     <div className="flex items-center justify-end p-6 border-t border-solid border-gray-300 rounded-b">
-                        {/* <button
-                        className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                        style={{ transition: "all .15s ease" }}
-                        onClick={() => this.setShowModal(false)}
-                        >
-                        Close
-                        </button> */}
                         <button
                         className="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                         type="button"

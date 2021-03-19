@@ -1,9 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
-
-
-//edit to fix client folder
+const validateForm = (errors) => {
+  let valid = true;
+  Object.values(errors).forEach(
+    // if we have an error string set valid to false
+    (val) => val.length > 0 && (valid = false)
+  );
+  return valid;
+}
 
 class InputClub extends React.Component{
 
@@ -12,12 +17,52 @@ class InputClub extends React.Component{
     city: '',
     league_titles: '',
     founded: '',
-    clubs: []
+    clubs: [],
+    errors: {
+      club: '',
+      city: '',
+      league_titles: '',
+      founded: ''
+    }
   };
 
-  handleChange = ({target}) => {
-    const { name, value } = target;
-    this.setState({[name]: value})
+  handleChange = (event) => {
+    event.preventDefault();
+    const { name, value } = event.target;
+    let errors = this.state.errors; 
+    const number = new RegExp("^[0-9]+$");
+
+    switch(name){
+      case 'club':
+        errors.club = 
+        value.length < 5
+          ? 'Club must be 5 or more characters'
+          :'';
+        break;
+      case 'city':
+        errors.city = 
+        value.length < 5 
+          ? 'City must be 5 or more characters'
+          :'';
+      break;
+      case 'league_titles':
+        errors.league_titles = 
+        value > 25 || !number.test(value)
+          ? 'League titles must be a number and less than 25'
+          :'';
+      break;
+      case 'founded':
+        errors.founded = 
+        value.length !== 4 || !number.test(value) || value > 2021 || value < 1880
+          ? 'Year founded must be a valid year after 1880'
+          :'';
+      break;
+      default:
+      break;
+    }
+    this.setState({errors, [name]: value}, ()=> {
+      console.log(errors)
+    })
   };
 
   submit = (event) => {
@@ -30,18 +75,25 @@ class InputClub extends React.Component{
       founded: this.state.founded
     };
 
-    axios ({
-      url:'/api/clubs',
-      method: 'POST',
-      data: payload
-    })
-    .then(() => {
-      console.log('Data has been sent to the server');
-      this.resetUserInputs();
-    })
-    .catch(() => {
-      console.log('Internal server error');
-    });;
+    if(validateForm(this.state.errors)){
+      console.info('Valid Form')
+      axios ({
+        url:'/api/clubs',
+        method: 'POST',
+        data: payload
+      })
+      .then(() => {
+        console.log('Data has been sent to the server');
+        this.resetUserInputs();
+      })
+      .catch(() => {
+        console.log('Internal server error');
+      });;
+    }else{
+      console.error('Invalid Form')
+    }
+
+    alert("You are submitting " + this.state.club + "'s information")
   };
 
   resetUserInputs = () => {
@@ -54,8 +106,8 @@ class InputClub extends React.Component{
   };
 
   render() {
-    
-    console.log('State: ', this.state);
+    const {errors} = this.state;
+    // console.log('State: ', this.state);
     //JSX
     return(
 
@@ -92,6 +144,7 @@ class InputClub extends React.Component{
                     <h2>Club Input Form</h2>
                     <form onSubmit={this.submit}>
                     <div className="form-input">
+                      <div>
                         <input
                         type="text"
                         name="club"
@@ -99,8 +152,12 @@ class InputClub extends React.Component{
                         value={this.state.club}
                         onChange={this.handleChange}
                         />
+                        {errors.club.length > 0 && 
+                        <span className='error'>{errors.club}</span>}
+                      </div>
                     </div>
                     <div className="form-input">
+                      <div>
                         <input 
                         type="text"
                         placeholder="City" 
@@ -108,8 +165,12 @@ class InputClub extends React.Component{
                         value={this.state.city} 
                         onChange={this.handleChange}>
                         </input>
+                        {errors.city.length > 0 && 
+                        <span className='error'>{errors.city}</span>}
+                      </div>
                     </div>
                     <div className="form-input">
+                      <div>
                         <input 
                         type="text"
                         placeholder="League Titles" 
@@ -117,15 +178,22 @@ class InputClub extends React.Component{
                         value={this.state.league_titles} 
                         onChange={this.handleChange}>
                         </input>
+                        {errors.league_titles.length > 0 && 
+                        <span className='error'>{errors.league_titles}</span>}
+                      </div>
                     </div>
                     <div className="form-input">
-                        <input 
-                        type="text"
-                        placeholder="Founded" 
-                        name="founded" 
-                        value={this.state.founded} 
-                        onChange={this.handleChange}>
-                        </input>
+                      <div>
+                          <input 
+                          type="text"
+                          placeholder="Founded" 
+                          name="founded" 
+                          value={this.state.founded} 
+                          onChange={this.handleChange}>
+                          </input>
+                          {errors.founded.length > 0 && 
+                          <span className="error">{errors.founded}</span>}
+                      </div>
                     </div>
 
                     <button>Submit</button>
