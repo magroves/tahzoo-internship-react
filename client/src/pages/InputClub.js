@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import axios from 'axios';
 import Header from '../partials/Header';
 
@@ -53,59 +53,26 @@ class InputClub extends React.Component{
     });
   };
 
-  render() {
-    
-    console.log('State: ', this.state);
-    //JSX
-    return(
-      <div className="flex flex-col min-h-screen overflow-hidden">
-        <Header />
-        <br></br>
-        <br></br>
-        <h2>Club Input Form</h2>
-        <form onSubmit={this.submit}>
-          <div className="form-input">
-            <input
-            type="text"
-            name="club"
-            placeholder="Club"
-            value={this.state.club}
-            onChange={this.handleChange}
-            />
-          </div>
-          <div className="form-input">
-            <input 
-              type="text"
-              placeholder="City" 
-              name="city" 
-              value={this.state.city} 
-              onChange={this.handleChange}>
-            </input>
-          </div>
-          <div className="form-input">
-            <input 
-              type="text"
-              placeholder="League Titles" 
-              name="league_titles" 
-              value={this.state.league_titles} 
-              onChange={this.handleChange}>
-            </input>
-          </div>
-          <div className="form-input">
-            <input 
-              type="text"
-              placeholder="Founded" 
-              name="founded" 
-              value={this.state.founded} 
-              onChange={this.handleChange}>
-            </input>
-          </div>
+  render() {  
 
-          <button>Submit</button>
-        </form> 
-    </div>
-    );
-  }
-}
+    console.log('State: ', this.state);
+    return (
+      <div className="flex flex-col min-h-screen overflow-hidden">
+        {/*  Site header */}
+        <Header />
+
+        {/*  Page content */}
+        <main className="flex-grow">
+
+          {/*  Page sections */}
+          <FormInput form = {this.state.clubs} />
+
+        </main>
+
+        {/*  Site footer */}
+        <Footer />
+      </div>
+    );}
+ }
 
 export default InputClub;
