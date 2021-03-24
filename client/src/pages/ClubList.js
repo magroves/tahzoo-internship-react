@@ -11,6 +11,7 @@ class ClubList extends React.Component{
     city: '',
     league_titles: '',
     founded: '',
+    image: '',
     clubs: []
   };
 
@@ -53,6 +54,7 @@ class ClubList extends React.Component{
         <p>{clubs.city}</p>
         <p>{clubs.league_titles}</p>
         <p>{clubs.founded}</p>
+        <img src={clubs.image} alt="club logo"/>
       </div>
     ))
   };

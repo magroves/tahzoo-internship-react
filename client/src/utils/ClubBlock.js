@@ -119,7 +119,7 @@ class ClubBlock extends React.Component {
                                 <p className="my-4 text-gray-600 text-lg leading-relaxed">
                                   <ul>
                                   <li><b>City: </b> {this.props.city} </li>
-                                  <li><b>Year Founded: </b>{this.props.founded} </li>
+                                  <li><b>Year Founded: </b> {this.props.founded} </li>
                                   <li><b>League Titles: </b> {this.props.league_titles} </li>
                                   </ul>
                                </p>

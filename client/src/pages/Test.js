@@ -25,7 +25,7 @@ render(){
             <div className="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none">
 
               {/* 1st item */}
-              <ClubBlock name ="Arsenal" image={require('../images/Arsenal-Logo.png')} height="125" width ="125" club="Arsenal F.C." city="London" league_titles="13" founded="1886"/>
+              <ClubBlock name ="Arsenal" image="https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/800px-Arsenal_FC.svg.png" height="125" width ="125" club="Arsenal F.C." city="London" league_titles="13" founded="1886"/>
 
               {/* 2nd item */}
               <ClubBlock name ="Aston Villa" image={require('../images/AstonVillaLogo.png')} height="50" width ="50"/>

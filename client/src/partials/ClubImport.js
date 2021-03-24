@@ -17,12 +17,14 @@ class InputClub extends React.Component{
     city: '',
     league_titles: '',
     founded: '',
+    iamge: '',
     clubs: [],
     errors: {
       club: '',
       city: '',
       league_titles: '',
-      founded: ''
+      founded: '',
+      image: ''
     }
   };
 
@@ -31,6 +33,12 @@ class InputClub extends React.Component{
     const { name, value } = event.target;
     let errors = this.state.errors; 
     const number = new RegExp("^[0-9]+$");
+    const url = new RegExp("^(https?:\\/\\/)?" + // protocol
+    "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|"+ // domain name
+    "((\\d{1,3}\\.){3}\\d{1,3}))"+ // OR ip (v4) address
+    "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*"+ // port and path
+    "(\\?[;&a-z\\d%_.~+=-]*)?"+ // query string
+    "(\\#[-a-z\\d_]*)?$","i"); // fragment locator);
 
     switch(name){
       case 'club':
@@ -57,6 +65,12 @@ class InputClub extends React.Component{
           ? 'Year founded must be a valid year after 1880'
           :'';
       break;
+      case 'image':
+        errors.image = 
+        !url.test(value)
+          ? 'Image must be a valid url with image'
+          :'';
+      break;
       default:
       break;
     }
@@ -72,7 +86,8 @@ class InputClub extends React.Component{
       club: this.state.club,
       city: this.state.city,
       league_titles: this.state.league_titles,
-      founded: this.state.founded
+      founded: this.state.founded,
+      image: this.state.image
     };
 
     if(validateForm(this.state.errors)){
@@ -85,15 +100,15 @@ class InputClub extends React.Component{
       .then(() => {
         console.log('Data has been sent to the server');
         this.resetUserInputs();
+        alert("You are submitting " + this.state.club + "'s information")
       })
       .catch(() => {
         console.log('Internal server error');
       });;
     }else{
       console.error('Invalid Form')
+      alert("Invalid Form")
     }
-
-    alert("You are submitting " + this.state.club + "'s information")
   };
 
   resetUserInputs = () => {
@@ -101,7 +116,8 @@ class InputClub extends React.Component{
       club: '',
       city: '',
       league_titles: '',
-      founded: ''
+      founded: '',
+      image: ''
     });
   };
 
@@ -193,6 +209,19 @@ class InputClub extends React.Component{
                           </input>
                           {errors.founded.length > 0 && 
                           <span className="error">{errors.founded}</span>}
+                      </div>
+                    </div>
+                    <div className="form-input">
+                      <div>
+                          <input 
+                          type="text"
+                          placeholder="Image" 
+                          name="image" 
+                          value={this.state.image} 
+                          onChange={this.handleChange}>
+                          </input>
+                          {errors.image.length > 0 && 
+                          <span className="error">{errors.image}</span>}
                       </div>
                     </div>
 
