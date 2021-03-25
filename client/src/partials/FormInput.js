@@ -7,14 +7,14 @@ function FormInput(props) {
           <br></br>
           <br></br>
           <h2>Club Input Form</h2>
-          <form onSubmit={this.submit}>
+          <form onSubmit={props.submit}>
             <div className="form-input">
               <input
               type="text"
               name="club"
               placeholder="Club"
-              value={this.state.club}
-              onChange={this.handleChange}
+              value={props.club}
+              onChange={props.handleChange}
               />
             </div>
             <div className="form-input">
@@ -22,8 +22,8 @@ function FormInput(props) {
                 type="text"
                 placeholder="City" 
                 name="city" 
-                value={this.state.city} 
-                onChange={this.handleChange}>
+                value={props.city} 
+                onChange={props.handleChange}>
               </input>
             </div>
             <div className="form-input">
@@ -31,8 +31,8 @@ function FormInput(props) {
                 type="text"
                 placeholder="League Titles" 
                 name="league_titles" 
-                value={this.state.league_titles} 
-                onChange={this.handleChange}>
+                value={props.league_titles} 
+                onChange={props.handleChange}>
               </input>
             </div>
             <div className="form-input">
@@ -40,8 +40,8 @@ function FormInput(props) {
                 type="text"
                 placeholder="Founded" 
                 name="founded" 
-                value={this.state.founded} 
-                onChange={this.handleChange}>
+                value={props.founded} 
+                onChange={props.handleChange}>
               </input>
             </div>
   

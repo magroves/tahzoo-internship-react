@@ -1,8 +1,8 @@
  import React from 'react';
 import axios from 'axios';
 import Header from '../partials/Header';
-
-
+import Footer from '../partials/Footer';
+import FormInput from '../partials/FormInput';
 //edit to fix client folder
 
 class InputClub extends React.Component{
@@ -65,7 +65,7 @@ class InputClub extends React.Component{
         <main className="flex-grow">
 
           {/*  Page sections */}
-          <FormInput form = {this.state.clubs} />
+          <FormInput form = {this.state} />
 
         </main>
 
