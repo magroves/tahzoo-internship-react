@@ -17,7 +17,7 @@ class InputClub extends React.Component{
     city: '',
     league_titles: '',
     founded: '',
-    iamge: '',
+    image: '',
     clubs: [],
     errors: {
       club: '',

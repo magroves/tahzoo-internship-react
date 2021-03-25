@@ -1,14 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 
 class ClubBlock extends React.Component {  
 
     state = {
-        club: '',
-        city: '',
-        league_titles: '',
-        founded: '',
-        clubs: [],
         showModal: false,
         setShowModal: false
       };
@@ -16,77 +10,18 @@ class ClubBlock extends React.Component {
       setShowModal = (e) => {
           this.setState({ showModal: e})
       };
-    
-      async componentDidMount() {
-        await this.getClubs();
-      };
-    
-      async getClubs() { 
-        axios.get('/api/clubs')
-        .then((response) => {
-          const data = response.data;
-          const sortedClubs = data;
-    
-          sortedClubs.sort(function(club1, club2) {
-            club1 = club1.club.toLowerCase();
-            club2 = club2.club.toLowerCase();
-      
-            return (club1 < club2) ? -1 : (club1 > club2) ? 1 : 0;
-          });
-          console.log('Data has been received!!');
-          this.setState({clubs: data});
-        })
-        .catch((error) => {
-          console.log(error);
-          alert('Error');
-        });
-      }
-    
-      handleChange = ({target}) => {
-        const { name, value } = target;
-        this.setState({[name]: value})
-      };
-    
-      displayClubs = (clubs) => {
-        if (!clubs.length) return null;
-    
-        return clubs.map((clubs, index) => (
-          <div key={index}>
-            <h1>{clubs.club}</h1>
-            <p>{clubs.city}</p>
-            <p>{clubs.league_titles}</p>
-            <p>{clubs.founded}</p>
-          </div>
-        ))
-      };
-
-          /*map (
-      <h1> clubs.club>
-      <ClubModal clubFounded={club.Founded} clubLeague = {club.league}>
-    )
-    
-    ClubModal extends Component (
-
-      //modal logic
-
-      render() {
-        {this.props.clubFounded}
-      }
-    )
-    */
 
     render(){
         return (
-                <div className="relative flex flex-col justify-items-center p-6 bg-white rounded shadow-xl">
+                <div className="relative flex flex-col justify-items-center">
                     <button
                         type="button"
                         style={{ transition: "all .15s ease" }}
                         onClick={() => {this.setShowModal(true)}}
                     >
-                        <div className="">
-                        <img className="md:max-w-none mx-auto rounded" src={this.props.image} width={this.props.width} height={this.props.height} alt={this.props.name} />
-                        <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">{this.props.name}</h4>
-                        <p className="text-gray-600 text-center"></p>
+                        <div className="p-6 bg-white rounded shadow-xl">
+                        <img className="object-scale-down md:max-w-none h-20 w-20 mx-auto rounded" src={this.props.club.image}  alt="club logo" />
+                        <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">{this.props.club.club}</h4>
                         </div>
                     </button>
                     <div>
@@ -103,7 +38,7 @@ class ClubBlock extends React.Component {
                             {/*header*/}
                             <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
                                 <h3 className="text-3xl font-semibold">
-                                {this.props.club}
+                                {this.props.club.club}
                                 </h3>
                                 <button
                                 className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -115,12 +50,14 @@ class ClubBlock extends React.Component {
                                 </button>
                             </div>
                             {/*body*/}
-                            <div className="relative p-6 flex-auto">
-                                <p className="my-4 text-gray-600 text-lg leading-relaxed">
+                            <div className="relative p-6 flex-auto inline-block">
+                            <img className="md:max-w-none mx-auto h-30 w-40 rounded" src={this.props.club.image} alt="club logo" />
+                            <br/>
+                                <p className="md:text-center mx-auto text-gray-600 text-lg leading-relaxed">
                                   <ul>
-                                  <li><b>City: </b> {this.props.city} </li>
-                                  <li><b>Year Founded: </b> {this.props.founded} </li>
-                                  <li><b>League Titles: </b> {this.props.league_titles} </li>
+                                  <li><b>City: </b> {this.props.club.city} </li>
+                                  <li><b>Year Founded: </b> {this.props.club.founded} </li>
+                                  <li><b>League Titles: </b> {this.props.club.league_titles} </li>
                                   </ul>
                                </p>
                             </div>

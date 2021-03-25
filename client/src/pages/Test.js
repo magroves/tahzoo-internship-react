@@ -1,9 +1,43 @@
 import React from 'react';
+import axios from 'axios';
 import ClubBlock from '../utils/ClubBlock';
 
 
 class Test extends React.Component{
 
+  state = {
+    club: '',
+    city: '',
+    league_titles: '',
+    founded: '',
+    image: '',
+    clubs: []
+  }
+
+  async componentDidMount() {
+    await this.getClubs();
+  };
+
+  async getClubs() { 
+    axios.get('/api/clubs')
+    .then((response) => {
+      const data = response.data;
+      const sortedClubs = data;
+
+      sortedClubs.sort(function(club1, club2) {
+        club1 = club1.club.toLowerCase();
+        club2 = club2.club.toLowerCase();
+  
+        return (club1 < club2) ? -1 : (club1 > club2) ? 1 : 0;
+      });
+      console.log('Data has been received!!');
+      this.setState({clubs: data});
+    })
+    .catch((error) => {
+      console.log(error);
+      alert('Error');
+    });
+  }
 render(){
     return (
       <section className="relative">
@@ -24,65 +58,51 @@ render(){
             {/* Items */}
             <div className="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none">
 
-              {/* 1st item */}
-              <ClubBlock name ="Arsenal" image="https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/800px-Arsenal_FC.svg.png" height="125" width ="125" club="Arsenal F.C." city="London" league_titles="13" founded="1886"/>
+              {this.state.clubs.map((club, index) => 
+                <ClubBlock club={club}/>
+              )}
+            
+              {/* 
+                <ClubBlock name ="Arsenal" image="https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/800px-Arsenal_FC.svg.png" height="125" width ="125" club="Arsenal F.C." city="London" league_titles="13" founded="1886"/>
 
-              {/* 2nd item */}
-              <ClubBlock name ="Aston Villa" image={require('../images/AstonVillaLogo.png')} height="50" width ="50"/>
+                <ClubBlock name ="Aston Villa" image={require('../images/AstonVillaLogo.png')} height="50" width ="50"/>
 
-              {/* 3rd item */}
-              <ClubBlock name ="Brighton" image={require('../images/Brighton-logo.png')} height="70" width ="70"/>
+                <ClubBlock name ="Brighton" image={require('../images/Brighton-logo.png')} height="70" width ="70"/>
 
-              {/* 4th item */}
-              <ClubBlock name ="Burnley" image={require('../images/Burnleylogo.png')} height="125" width ="125"/>
+                <ClubBlock name ="Burnley" image={require('../images/Burnleylogo.png')} height="125" width ="125"/>
 
-              {/* 5th item */}
-              <ClubBlock name ="Chelsea" image={require('../images/chelsea-logo.png')} height="70" width ="70"/>
+                <ClubBlock name ="Chelsea" image={require('../images/chelsea-logo.png')} height="70" width ="70"/>
 
-              {/* 6th item */}
-              <ClubBlock name ="Crystal Palace" image={require('../images/crystalpalace-logo.png')} height="55" width ="55"/>
+                <ClubBlock name ="Crystal Palace" image={require('../images/crystalpalace-logo.png')} height="55" width ="55"/>
 
-              {/* 7th item */}
-              <ClubBlock name ="Everton" image={require('../images/everton-logo.png')} height="70" width ="70"/>
+                <ClubBlock name ="Everton" image={require('../images/everton-logo.png')} height="70" width ="70"/>
 
-              {/* 8th item */}
-              <ClubBlock name ="Fulham" image={require('../images/fulham-logo.png')} height="55" width ="55"/>
+                <ClubBlock name ="Fulham" image={require('../images/fulham-logo.png')} height="55" width ="55"/>
 
-              {/* 9th item */}
-              <ClubBlock name ="Leeds United" image={require('../images/leeds-logo.png')} height="63" width ="63"/>
+                <ClubBlock name ="Leeds United" image={require('../images/leeds-logo.png')} height="63" width ="63"/>
 
-              {/* 10th item */}
-              <ClubBlock name ="Leicester City" image={require('../images/leicester-logo.png')} height="70" width ="70"/>
+                <ClubBlock name ="Leicester City" image={require('../images/leicester-logo.png')} height="70" width ="70"/>
 
-              {/* 11th item */}
-              <ClubBlock name ="Liverpool" image={require('../images/liverpool-logo.png')} height="55" width ="55"/>
+                <ClubBlock name ="Liverpool" image={require('../images/liverpool-logo.png')} height="55" width ="55"/>
 
-              {/* 12th item */}
-              <ClubBlock name ="Manchester City" image={require('../images/mancity-logo.png')} height="70" width ="70"/>
+                <ClubBlock name ="Manchester City" image={require('../images/mancity-logo.png')} height="70" width ="70"/>
 
-              {/* 13th item */}
-              <ClubBlock name ="Manchester United" image={require('../images/manutd-logo.png')} height="70" width ="70"/>
+                <ClubBlock name ="Manchester United" image={require('../images/manutd-logo.png')} height="70" width ="70"/>
 
-              {/* 14th item */}
-              <ClubBlock name ="Newcastle" image={require('../images/newcastleutdlogo.png')} height="70" width ="70"/>
+                <ClubBlock name ="Newcastle" image={require('../images/newcastleutdlogo.png')} height="70" width ="70"/>
 
-              {/* 15th item */}
-              <ClubBlock name ="Sheffield United" image={require('../images/sheffiled-logo.png')} height="70" width ="70"/>
+                <ClubBlock name ="Sheffield United" image={require('../images/sheffiled-logo.png')} height="70" width ="70"/>
 
-              {/* 16th item */}
-              <ClubBlock name ="Southampton" image={require('../images/southampton-logo.png')} height="63" width ="63"/>
+                <ClubBlock name ="Southampton" image={require('../images/southampton-logo.png')} height="63" width ="63"/>
 
-              {/* 17th item */}
-              <ClubBlock name ="Tottenham Hotspur" image={require('../images/tottenham-logo.png')} height="35" width ="35"/>
+                <ClubBlock name ="Tottenham Hotspur" image={require('../images/tottenham-logo.png')} height="35" width ="35"/>
 
-              {/* 18th item */}
-              <ClubBlock name ="West Bromwich Albion" image={require('../images/westbrom-logo.png')} height="60" width ="60"/>
+                <ClubBlock name ="West Bromwich Albion" image={require('../images/westbrom-logo.png')} height="60" width ="60"/>
 
-              {/* 19th item */}
-              <ClubBlock name ="West Ham United" image={require('../images/westham-logo.png')} height="63" width ="63"/>
+                <ClubBlock name ="West Ham United" image={require('../images/westham-logo.png')} height="63" width ="63"/>
 
-              {/* 20th item */}
-              <ClubBlock name ="Wolverhampton Wanderers" image={require('../images/wolves-logo.png')} height="70" width ="70"/>
+                <ClubBlock name ="Wolverhampton Wanderers" image={require('../images/wolves-logo.png')} height="70" width ="70"/>
+              */}
               </div>
           </div>
         </div>

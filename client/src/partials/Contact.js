@@ -27,9 +27,11 @@ class Contact extends React.Component{
     .then(() => {
       console.log('Data has been sent to the server');
       this.resetUserInputs();
+      alert('Thank you for your message!');
     })
     .catch(() => {
       console.log('Internal server error');
+      alert('Sorry, we seem to have run into an error');
     });;
   };
 
