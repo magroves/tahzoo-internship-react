@@ -3,14 +3,14 @@ import React from 'react';
 function FormInput(props) {
   return (
     <div class="flex items-center h-screen w-full bg-teal-lighter">
-      <div class="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
-        <h1 class="block w-full text-center text-grey-darkest mb-6">
+      <div class="w-full bg-gray-100 rounded shadow-lg p-8 m-4 md:max-w-xs md:mx-auto">
+        <h1 class="text-gray-700 font-semibold text-2xl tracking-wide mb-2 text-center">
           Club Input Form
         </h1>
         <form class="mb-4 md:flex md:flex-wrap md:justify-between" onSubmit={props.submit} method="post">
           <div class="flex flex-col mb-4">
             <input
-              class="border py-2 px-3 text-grey-darkest md:mr-2"
+              class="border py-2 px-3 text-grey-darkest md:mr-2 text-xm"
               type="text"
               name="club"
               placeholder="Club"
@@ -20,7 +20,7 @@ function FormInput(props) {
           </div>
           <div class="flex flex-col mb-4">
             <input
-              class="border py-2 px-3 text-grey-darkest md:mr-2"
+              class="border py-2 px-3 text-grey-darkest md:mr-2 text-xm"
               type="text"
               placeholder="City"
               name="city"
@@ -30,7 +30,7 @@ function FormInput(props) {
           </div>
           <div class="flex flex-col mb-4">
             <input
-              class="border py-2 px-3 text-grey-darkest md:mr-2"
+              class="border py-2 px-3 text-grey-darkest md:mr-2 text-xm"
               type="text"
               placeholder="League Titles"
               name="league_titles"
@@ -40,7 +40,7 @@ function FormInput(props) {
           </div>
           <div class="flex flex-col mb-4">
             <input
-              class="border py-2 px-3 text-grey-darkest md:mr-2"
+              class="border py-2 px-3 text-grey-darkest md:mr-2 text-xm"
               type="text"
               placeholder="Founded"
               name="founded"
@@ -49,7 +49,7 @@ function FormInput(props) {
             ></input>
           </div>
 
-          <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+          <button class="block uppercase text-center shadow bg-indigo-600 hover:bg-indigo-700 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-10 rounded">
             Submit
           </button>
         </form>
