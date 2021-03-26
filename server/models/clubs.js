@@ -7,6 +7,7 @@ const PremierLeagueSchema = new Schema({
     city: String,
     league_titles: String,
     founded: String,
+    image: String,
 });
 
 //Model

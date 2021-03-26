@@ -12,6 +12,7 @@ class ClubList extends React.Component{
     city: '',
     league_titles: '',
     founded: '',
+    image: '',
     clubs: []
   };
 
@@ -20,7 +21,7 @@ class ClubList extends React.Component{
   };
 
   async getClubs() { 
-    axios.get('/api')
+    axios.get('/api/clubs')
     .then((response) => {
       const data = response.data;
       const sortedClubs = data;
@@ -50,6 +51,7 @@ class ClubList extends React.Component{
      <div className="flex flex-col min-h-screen overflow-hidden">
       {/*  Site header */}
       <Header />
+
 
         {/*  Page content */}
         <main className="flex-grow">

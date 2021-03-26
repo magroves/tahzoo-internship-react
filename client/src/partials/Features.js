@@ -40,8 +40,8 @@ function Features() {
             {/* Content */}
             <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 md:mt-6" data-aos="fade-right">
               <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
-                <h3 className="h3 mb-3">Import Scores</h3>
-                <p className="text-xl text-gray-600">We will have a fully working league table with the ability to import scores each week to update the standings</p>
+                <h3 className="h3 mb-3">Import Teams</h3>
+                <p className="text-xl text-gray-600">We will have a fully working league table where you can input new teams, images, etc.</p>
               </div>
               {/* Tabs buttons */}
               <div className="mb-8 md:mb-0">
@@ -52,7 +52,7 @@ function Features() {
                 >
                   <div>
                     <div className="font-bold leading-snug tracking-tight mb-1">The League</div>
-                    <div className="text-gray-600">We will have a separate page containing the entire table laid out with wins, losses, ties, pts, and more</div>
+                    <div className="text-gray-600">The Premier League is the highest level of soccer/football in England and is considered one of the most competitive leagues in the world</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow flex-shrink-0 ml-3">
                     <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -66,8 +66,8 @@ function Features() {
                   onClick={(e) => { e.preventDefault(); setTab(2); }}
                 >
                   <div>
-                    <div className="font-bold leading-snug tracking-tight mb-1">How we plan to do it</div>
-                    <div className="text-gray-600">We will have a separate page dedicated to inputting weekly scores to update the database and the table</div>
+                    <div className="font-bold leading-snug tracking-tight mb-1">How we did it</div>
+                    <div className="text-gray-600">We have a separate page dedicated to inputting teams, viewing all of them, and updating the as needed</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow flex-shrink-0 ml-3">
                     <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +82,7 @@ function Features() {
                 >
                   <div>
                     <div className="font-bold leading-snug tracking-tight mb-1">What's left</div>
-                    <div className="text-gray-600">Currently we only have a very basic website laid out with many changes in the works for the future</div>
+                    <div className="text-gray-600">Currently we only have a very basic website laid out with many potential changes for the future including a functioning table where you can input weekly scores to update it.</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow flex-shrink-0 ml-3">
                     <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -110,7 +110,6 @@ function Features() {
                 >
                   <div className="relative inline-flex flex-col">
                     <img className="md:max-w-none mx-auto rounded" src={require('../images/premierleaguelogo.jpg')} width="500" height="462" alt="Features bg" />
-                    {/* <img className="md:max-w-none absolute w-full left-0 transform animate-float" src={require('../images/features-element.png')} width="500" height="44" alt="Element" style={{ top: '30%' }} /> */}
                   </div>
                 </Transition>
                 {/* Item 2 */}
@@ -126,8 +125,7 @@ function Features() {
                   leaveEnd="opacity-0 -translate-y-16"
                 >
                   <div className="relative inline-flex flex-col">
-                    <img className="md:max-w-none mx-auto rounded" src={require('../images/features-bg.png')} width="500" height="462" alt="Features bg" />
-                    <img className="md:max-w-none absolute w-full left-0 transform animate-float" src={require('../images/features-element.png')} width="500" height="44" alt="Element" style={{ top: '30%' }} />
+                    <img className="md:max-w-none mx-auto rounded" src={require('../images/premierleagueteams.jpg')} width="500" height="462" alt="Features bg" />
                   </div>
                 </Transition>
                 {/* Item 3 */}
@@ -143,8 +141,8 @@ function Features() {
                   leaveEnd="opacity-0 -translate-y-16"
                 >
                   <div className="relative inline-flex flex-col">
-                    <img className="md:max-w-none mx-auto rounded" src={require('../images/features-bg.png')} width="500" height="462" alt="Features bg" />
-                    <img className="md:max-w-none absolute w-full left-0 transform animate-float" src={require('../images/features-element.png')} width="500" height="44" alt="Element" style={{ top: '30%' }} />
+                    <img className="md:max-w-none mx-auto rounded" src={require('../images/premierleaguetable.jpg')} width="500" height="462" alt="Features bg" />
+                    {/* <img className="md:max-w-none absolute w-full left-0 transform animate-float" src={require('../images/features-element.png')} width="500" height="44" alt="Element" style={{ top: '30%' }} /> */}
                   </div>
                 </Transition>
               </div>

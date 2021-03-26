@@ -1,57 +1,26 @@
- import React from 'react';
+import React from 'react';
 import axios from 'axios';
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import FormInput from '../partials/FormInput';
 //edit to fix client folder
 
+
 class InputClub extends React.Component{
+  render(){
+  return (
+    <div className="flex flex-col min-h-screen overflow-hidden">
 
-  state = {
-    club: '',
-    city: '',
-    league_titles: '',
-    founded: '',
-    clubs: []
-  };
+        {/*  Site header */}
+        <Header />
 
-  handleChange = ({target}) => {
-    const { name, value } = target;
-    this.setState({[name]: value})
-  };
+        {/*  Page content */}
+        <main className="flex-grow">
 
-  submit = (event) => {
-    event.preventDefault();
+          {/*  Page sections */}
+          <ClubImport />
 
-    const payload = {
-      club: this.state.club,
-      city: this.state.city,
-      league_titles: this.state.league_titles,
-      founded: this.state.founded
-    };
-
-    axios ({
-      url:'/api/save',
-      method: 'POST',
-      data: payload
-    })
-    .then(() => {
-      console.log('Data has been sent to the server');
-      this.resetUserInputs();
-    })
-    .catch(() => {
-      console.log('Internal server error');
-    });;
-  };
-
-  resetUserInputs = () => {
-    this.setState({
-      club: '',
-      city: '',
-      league_titles: '',
-      founded: ''
-    });
-  };
+        </main>
 
   render() {  
 
@@ -74,5 +43,6 @@ class InputClub extends React.Component{
       </div>
     );}
  }
+
 
 export default InputClub;
