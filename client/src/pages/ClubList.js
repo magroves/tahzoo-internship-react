@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import ClubTable from '../partials/ClubTable';
 import Header from '../partials/Header';
-
+import Footer from '../partials/Footer';
 //edit to fix client folder
 
 class ClubList extends React.Component{
@@ -30,7 +31,7 @@ class ClubList extends React.Component{
         club2 = club2.club.toLowerCase();
   
         return (club1 < club2) ? -1 : (club1 > club2) ? 1 : 0;
-      });
+      }); 
       console.log('Data has been received!!');
       this.setState({clubs: data});
     })
@@ -45,30 +46,24 @@ class ClubList extends React.Component{
     this.setState({[name]: value})
   };
 
-  displayClubs = (clubs) => {
-    if (!clubs.length) return null;
-
-    return clubs.map((clubs, index) => (
-      <div key={index}>
-        <h1>{clubs.club}</h1>
-        <p>{clubs.city}</p>
-        <p>{clubs.league_titles}</p>
-        <p>{clubs.founded}</p>
-        <img src={clubs.image} alt="club logo"/>
-      </div>
-    ))
-  };
-
   render() {
-    return(
-      <div className="flex flex-col min-h-screen overflow-hidden">
-        <Header />
-        <div className="clubs">
-          {this.displayClubs(this.state.clubs)}
-        </div>
-      </div>     
-    );
-  }
+    return (
+     <div className="flex flex-col min-h-screen overflow-hidden">
+      {/*  Site header */}
+      <Header />
+
+
+        {/*  Page content */}
+        <main className="flex-grow">
+          {/*  Page sections */}
+          <ClubTable table = {this.state.clubs} />
+
+        </main>
+
+        {/*  Site footer */}
+        <Footer />
+    </div>
+  );}
 }
 
 export default ClubList;

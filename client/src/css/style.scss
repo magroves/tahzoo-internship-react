@@ -53,3 +53,14 @@
 // AOS styles
 $aos-distance: 10px;
 @import 'node_modules/aos/src/sass/aos.scss';
+
+// temporary ClubList page styling
+#table-clubs {
+    border-collapse: collapse;
+}
+#table-clubs th,
+#table-clubs td {
+    border: 1px solid #999;
+    padding: 0.5rem;
+    text-align: left;
+}
