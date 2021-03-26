@@ -53,6 +53,7 @@ function ClubTable(props) {
             <table class="min-w-max w-full table-auto">
               <thead>
                 <tr class="bg-gray-200 text-gray-600 uppercase text-md leading-normal">
+                  <th class="py-3 px-6 text-center">Logo</th>
                   <th class="py-3 px-6 text-left">Club</th>
                   <th class="py-3 px-6 text-left">City</th>
                   <th class="py-3 px-6 text-center">League Titles</th>
@@ -65,6 +66,7 @@ function ClubTable(props) {
                   return (
                     <Fragment>
                       <tr class="border-b bg-gray-50 border-gray-200 hover:bg-gray-100">
+                      <td class="py-3 px-6 text-left"><img class="md:max-w-none mx-auto h-10 w-25 rounded" src={clubs.image} alt="club logo" /></td>
                         <td class="py-3 px-6 text-left whitespace-nowrap">{clubs.club}</td>
                         <td class="py-3 px-6 text-left">{clubs.city}</td>
                         <td class="py-3 px-6 text-center">{clubs.league_titles}</td>

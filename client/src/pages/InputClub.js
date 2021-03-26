@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import FormInput from '../partials/FormInput';
@@ -7,20 +6,6 @@ import FormInput from '../partials/FormInput';
 
 
 class InputClub extends React.Component{
-  render(){
-  return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
-
-        {/*  Site header */}
-        <Header />
-
-        {/*  Page content */}
-        <main className="flex-grow">
-
-          {/*  Page sections */}
-          <ClubImport />
-
-        </main>
 
   render() {  
 
@@ -34,7 +19,7 @@ class InputClub extends React.Component{
         <main className="flex-grow">
 
           {/*  Page sections */}
-          <FormInput form = {this.state} />
+          <FormInput />
 
         </main>
 
