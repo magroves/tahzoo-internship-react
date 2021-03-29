@@ -1,12 +1,31 @@
 import React from "react";
+import axios from "axios";
 import { Fragment } from "react";
+import ImportClub from '../utils/ImportClub';
+import Button from 'react-bootstrap/Button';
 
-function ClubTable(props) {
-  return (
-    <section class="relative max-w-6xl overflow-mx-auto px-4 sm:px-6">
+class ClubTable extends React.Component{
+  
+  constructor(props) {
+    super(props);
+    this.deleteClub = this.deleteClub.bind(this);
+  }
+
+deleteClub() {
+    axios.delete('/api/clubs')
+        .then((res) => {
+            console.log('Club successfully deleted!')
+        }).catch((error) => {
+            console.log(error)
+        })
+}
+
+render(){
+    return (
+    <section className="relative max-w-6xl overflow-mx-auto px-4 sm:px-6">
       {/* Illustration behind hero content */}
       <div
-        class="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none"
+        className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none"
         aria-hidden="true"
       >
         <svg
@@ -39,38 +58,44 @@ function ClubTable(props) {
       <br></br>
       <br></br>
       <br></br>
-      <div class="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
+      <div className="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
         {/* Hero content */}
-        <div class="w-full lg:w-5/6">
+        <div className="w-full lg:w-5/6">
           <div className="clubs ">
             <h1
-              class="text-center pb-12 md:pb-16 text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
+              className="text-center pb-12 md:pb-16 text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
               data-aos="zoom-y-out"
             >
               Premier League Clubs
             </h1>
 
-            <table class="min-w-max w-full table-auto">
+            <ImportClub />
+            <br/>
+            <br/>
+            <br/>
+
+            <table className="min-w-max w-full table-auto">
               <thead>
-                <tr class="bg-gray-200 text-gray-600 uppercase text-md leading-normal">
-                  <th class="py-3 px-6 text-center">Logo</th>
-                  <th class="py-3 px-6 text-left">Club</th>
-                  <th class="py-3 px-6 text-left">City</th>
-                  <th class="py-3 px-6 text-center">League Titles</th>
-                  <th class="py-3 px-6 text-center">Founded</th>
+                <tr className="bg-gray-200 text-gray-600 uppercase text-md leading-normal">
+                  <th className="py-3 px-6 text-center">Logo</th>
+                  <th className="py-3 px-6 text-left">Club</th>
+                  <th className="py-3 px-6 text-left">City</th>
+                  <th className="py-3 px-6 text-center">League Titles</th>
+                  <th className="py-3 px-6 text-center">Founded</th>
                 </tr>
               </thead>
 
-              <tbody class="text-gray-600 text-md font-light">
-                {props.table.map((clubs, index) => {
+              <tbody className="text-gray-600 text-md font-light">
+                {this.props.table.map((clubs, index) => {
                   return (
                     <Fragment>
-                      <tr class="border-b bg-gray-50 border-gray-200 hover:bg-gray-100">
-                      <td class="py-3 px-6 text-left"><img class="md:max-w-none mx-auto h-10 w-25 rounded" src={clubs.image} alt="club logo" /></td>
-                        <td class="py-3 px-6 text-left whitespace-nowrap">{clubs.club}</td>
-                        <td class="py-3 px-6 text-left">{clubs.city}</td>
-                        <td class="py-3 px-6 text-center">{clubs.league_titles}</td>
-                        <td class="py-3 px-6 text-center">{clubs.founded}</td>
+                      <tr className="border-b bg-gray-50 border-gray-200 hover:bg-gray-100">
+                        <td className="py-3 px-6 text-left"><img class="md:max-w-none mx-auto h-10 w-25 rounded" src={clubs.image} alt="club logo" /></td>
+                        <td className="py-3 px-6 text-left whitespace-nowrap">{clubs.club}</td>
+                        <td className="py-3 px-6 text-left">{clubs.city}</td>
+                        <td className="py-3 px-6 text-center">{clubs.league_titles}</td>
+                        <td className="py-3 px-6 text-center">{clubs.founded}</td>
+                        <td><Button onClick={this.deleteClub} size="sm" variant="danger">Delete</Button></td>
                       </tr>
                     </Fragment>
                   );
@@ -82,6 +107,7 @@ function ClubTable(props) {
       </div>
     </section>
   );
+}
 }
 
 export default ClubTable;

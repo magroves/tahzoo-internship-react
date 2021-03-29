@@ -38,7 +38,7 @@ function HeroHome() {
                   <a className="btn text-white bg-red-700 hover:bg-orange-600 w-full mb-4 sm:w-auto sm:mb-0" href="http://localhost:8080/api/clubs" target="_blank" rel="noopener noreferrer">API</a>
                 </div>
                 <div>
-                  <a className="btn text-white bg-orange-600 hover:bg-red-700 w-full sm:w-auto sm:ml-4" href="#0">Learn more</a>
+                  <a className="btn text-white bg-orange-600 hover:bg-red-700 w-full sm:w-auto sm:ml-4" href="https://github.com/magroves/tahzoo-internship-react" target="_blank" rel="noopener noreferrer">Learn more</a>
                 </div>
               </div>
             </div>
