@@ -30,10 +30,22 @@ router.post('/clubs', (req, res) => {
         }
         //Clubs
         return res.json({
-              msg: 'We received your team data!!!'
+              msg: 'We received your data!!!'
           });
     });
 });
+
+router.delete('/clubs', (req, res) => {
+    Club.findByIdAndRemove(req.params.id, (error, data) => {
+        if (error) {
+            return next(error);
+          } else {
+            res.status(200).json({
+              msg: data
+            })
+          }
+    })
+})
 
 //messages
 router.get('/message', (req, res) => {
@@ -64,13 +76,5 @@ router.post('/message', (req, res) => {
           });
     });
 });
-
-// router.get('/name', (req, res) => {
-//     const data = {
-//         username: 'sullivan',
-//         age: 23
-//     };
-//     res.json(data);
-// });
 
 module.exports = router;
