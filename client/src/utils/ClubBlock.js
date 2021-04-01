@@ -53,13 +53,13 @@ class ClubBlock extends React.Component {
                             <div className="relative p-6 flex-auto inline-block">
                             <img className="md:max-w-none mx-auto h-30 w-40 rounded" src={this.props.club.image} alt="club logo" />
                             <br/>
-                                <p className="md:text-center mx-auto text-gray-600 text-lg leading-relaxed">
+                                <span className="md:text-center mx-auto text-gray-600 text-lg leading-relaxed">
                                   <ul>
                                   <li><b>City: </b> {this.props.club.city} </li>
                                   <li><b>Year Founded: </b> {this.props.club.founded} </li>
                                   <li><b>League Titles: </b> {this.props.club.league_titles} </li>
                                   </ul>
-                               </p>
+                               </span>
                             </div>
                             {/*footer*/}
                             <div className="flex items-center justify-end p-6 border-t border-solid border-gray-300 rounded-b">

@@ -1,7 +1,7 @@
-import React from "react";
+import React, {Fragment} from "react";
 import axios from "axios";
-import { Fragment } from "react";
 import ImportClub from '../utils/ImportClub';
+import EditClub from '../utils/EditClub';
 import Button from 'react-bootstrap/Button';
 
 class ClubTable extends React.Component{
@@ -11,37 +11,27 @@ class ClubTable extends React.Component{
     this.deleteClub = this.deleteClub.bind(this);
   }
 
-deleteClub() {
-    axios.delete('/api/clubs')
-        .then((res) => {
-            console.log('Club successfully deleted!')
-        }).catch((error) => {
-            console.log(error)
-        })
-}
+  deleteClub(id) {
+      axios.delete('/api/clubs/' + id)
+          .then((res) => {
+              console.log('Club successfully deleted!')
+          }).catch((error) => {
+              console.log(error)
+          })  
+        
+      window.location.reload(true);
+      console.log(this.props)
+  }
+
 
 render(){
     return (
     <section className="relative max-w-6xl overflow-mx-auto px-4 sm:px-6">
       {/* Illustration behind hero content */}
-      <div
-        className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none"
-        aria-hidden="true"
-      >
-        <svg
-          width="1360"
-          height="578"
-          viewBox="0 0 1360 578"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+      <div className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none" aria-hidden="true">
+        <svg width="1360" height="578" viewBox="0 0 1360 578" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient
-              x1="50%"
-              y1="0%"
-              x2="50%"
-              y2="100%"
-              id="illustration-01"
-            >
+            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="illustration-01">
               <stop stopColor="#FFF" offset="0%" />
               <stop stopColor="#EAEAEA" offset="77.402%" />
               <stop stopColor="#DFDFDF" offset="100%" />
@@ -58,7 +48,8 @@ render(){
       <br></br>
       <br></br>
       <br></br>
-      <div className="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
+      
+      <div className="min-w-screen min-h-screen flex items-center justify-center font-sans overflow-hidden">
         {/* Hero content */}
         <div className="w-full lg:w-5/6">
           <div className="clubs ">
@@ -88,16 +79,17 @@ render(){
               <tbody className="text-gray-600 text-md font-light">
                 {this.props.table.map((clubs, index) => {
                   return (
-                    <Fragment>
-                      <tr className="border-b bg-gray-50 border-gray-200 hover:bg-gray-100">
-                        <td className="py-3 px-6 text-left"><img class="md:max-w-none mx-auto h-10 w-25 rounded" src={clubs.image} alt="club logo" /></td>
-                        <td className="py-3 px-6 text-left whitespace-nowrap">{clubs.club}</td>
-                        <td className="py-3 px-6 text-left">{clubs.city}</td>
-                        <td className="py-3 px-6 text-center">{clubs.league_titles}</td>
-                        <td className="py-3 px-6 text-center">{clubs.founded}</td>
-                        <td><Button onClick={this.deleteClub} size="sm" variant="danger">Delete</Button></td>
-                      </tr>
-                    </Fragment>
+                      <Fragment key={clubs.club + index}>
+                        <tr className="border-b bg-gray-50 border-gray-200 hover:bg-gray-100">
+                          <td className="py-3 px-6 text-left"><img className="md:max-w-none mx-auto h-10 w-25 rounded" src={clubs.image} alt="club logo" /></td>
+                          <td className="py-3 px-6 text-left whitespace-nowrap">{clubs.club}</td>
+                          <td className="py-3 px-6 text-left">{clubs.city}</td>
+                          <td className="py-3 px-6 text-center">{clubs.league_titles}</td>
+                          <td className="py-3 px-6 text-center">{clubs.founded}</td>
+                          <td className="py-1 px-2 text-center"><EditClub clubs={clubs} size="sm" variant="danger"/></td>
+                          <td className="py-1 px-2 text-center"><Button className="btn-sm text-white bg-red-700 hover:bg-orange-600 ml-3 float-right" onClick={() => this.deleteClub(clubs._id)} size="sm" variant="danger">Delete</Button></td>
+                        </tr>
+                      </Fragment>
                   );
                 })}
               </tbody>

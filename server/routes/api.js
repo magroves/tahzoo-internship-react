@@ -6,6 +6,8 @@ const Club = require('../models/clubs');
 const Message = require('../models/emails');
 
 //Routes
+
+//Read 
 router.get('/clubs', (req, res) => {
     Club.find({ })
     .then((data) => {
@@ -16,6 +18,7 @@ router.get('/clubs', (req, res) => {
     });
 })
 
+//Create
 router.post('/clubs', (req, res) => {
     console.log('Body: ', req.body);
     const data = req.body;
@@ -35,7 +38,23 @@ router.post('/clubs', (req, res) => {
     });
 });
 
-router.delete('/clubs', (req, res) => {
+//Update
+router.put('/clubs/:id', (req, res) => {
+    Club.findByIdAndUpdate(req.params.id, {
+        $set: req.body
+    }, (error, data) => {
+        if(error) {
+            console.log(error)
+            return next(error); 
+        } else {
+            res.json(data)
+            console.log('Club updated successfully!')
+        }
+    })
+})
+
+//Delete
+router.delete('/clubs/:id', (req, res) => {
     Club.findByIdAndRemove(req.params.id, (error, data) => {
         if (error) {
             return next(error);
@@ -43,6 +62,7 @@ router.delete('/clubs', (req, res) => {
             res.status(200).json({
               msg: data
             })
+            console.log('Club successfully deleted')
           }
     })
 })

@@ -59,7 +59,7 @@ render(){
             <div className="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none">
 
               {this.state.clubs.map((club, index) => 
-                <ClubBlock club={club}/>
+                <ClubBlock club={club} key={club + index}/>
               )}
         </div>
         </div>
