@@ -54,8 +54,12 @@ class Suggestions extends React.Component{
                 <main className="flex-grow">
         
                     {/*  Page sections */}
-                    <Messages />
+                    <Messages table = {this.state.messages} />
                 </main>
+
+                <br />
+                <br />
+                <br />
 
                 {/*  Site footer */}
                 <Footer />

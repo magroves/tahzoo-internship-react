@@ -82,59 +82,9 @@ class EditClub extends React.Component {
 
       setShowModal = (e) => {
         this.setState({ showModal: e})
+
     };
     
-      // handleChange = (event) => {
-      //   event.preventDefault();
-      //   const { name, value } = event.target;
-      //   let errors = this.state.errors; 
-      //   const number = new RegExp("^[0-9]+$");
-      //   const url = new RegExp("^(https?:\\/\\/)?" + // protocol
-      //   "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|"+ // domain name
-      //   "((\\d{1,3}\\.){3}\\d{1,3}))"+ // OR ip (v4) address
-      //   "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*"+ // port and path
-      //   "(\\?[;&a-z\\d%_.~+=-]*)?"+ // query string
-      //   "(\\#[-a-z\\d_]*)?$","i"); // fragment locator);
-    
-      //   switch(name){
-      //     case 'club':
-      //       errors.club = 
-      //       value.length < 5
-      //         ? 'Club must be 5 or more characters'
-      //         :'';
-      //       break;
-      //     case 'city':
-      //       errors.city = 
-      //       value.length < 5 
-      //         ? 'City must be 5 or more characters'
-      //         :'';
-      //     break;
-      //     case 'league_titles':
-      //       errors.league_titles = 
-      //       value > 25 || !number.test(value)
-      //         ? 'League titles must be a number and less than 25'
-      //         :'';
-      //     break;
-      //     case 'founded':
-      //       errors.founded = 
-      //       value.length !== 4 || !number.test(value) || value > 2021 || value < 1880
-      //         ? 'Year founded must be a valid year after 1880'
-      //         :'';
-      //     break;
-      //     case 'image':
-      //       errors.image = 
-      //       !url.test(value)
-      //         ? 'Image must be a valid url with image'
-      //         :'';
-      //     break;
-      //     default:
-      //     break;
-      //   }
-      //   this.setState({errors, [name]: value}, ()=> {
-      //     console.log(errors)
-      //   })
-      // };
-      
       render() {
         const {errors} = this.state;
         return (

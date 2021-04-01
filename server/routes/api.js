@@ -97,4 +97,18 @@ router.post('/message', (req, res) => {
     });
 });
 
+//Delete
+router.delete('/message/:id', (req, res) => {
+    Message.findByIdAndRemove(req.params.id, (error, data) => {
+        if (error) {
+            return next(error);
+          } else {
+            res.status(200).json({
+              msg: data
+            })
+            console.log('Message successfully deleted')
+          }
+    })
+})
+
 module.exports = router;
