@@ -1,15 +1,43 @@
 import React from 'react';
 import axios from 'axios';
 
+const validateForm = (errors) => {
+  let valid = true;
+  Object.values(errors).forEach(
+    // if we have an error string set valid to false
+    (val) => val.length > 0 && (valid = false)
+  );
+  return valid;
+}
+
 class Contact extends React.Component{
+
   state = {
     message: '',
-    messages: []
+    messages: [],
+    errors: {
+      message: ''
+    }
   };
 
-  handleChange = ({target}) => {
-    const { name, value } = target;
-    this.setState({[name]: value})
+  handleChange = (event) => {
+    event.preventDefault();
+    const { name, value } = event.target;
+    let errors = this.state.errors;
+
+    switch(name){
+      case 'message':
+        errors.message =
+        value.length < 5
+          ? 'Message should be longer than 5 characters'
+          : '';
+      break;
+      default:
+      break;
+    }
+    this.setState({errors, [name]: value}, () => {
+      console.log(errors)
+    })
   };
   
   submit = (event) => {
@@ -19,20 +47,26 @@ class Contact extends React.Component{
       message: this.state.message
     };
 
-    axios ({
-      url:'/api/message',
-      method: 'POST',
-      data: payload
-    })
-    .then(() => {
-      console.log('Data has been sent to the server');
-      this.resetUserInputs();
-      alert('Thank you for your message!');
-    })
-    .catch(() => {
-      console.log('Internal server error');
-      alert('Sorry, we seem to have run into an error');
-    });;
+    if(validateForm(this.state.errors)){
+        console.info('Valid Message');
+        axios ({
+          url:'/api/message',
+          method: 'POST',
+          data: payload
+        })
+        .then(() => {
+          console.log('Data has been sent to the server');
+          this.resetUserInputs();
+          alert('Thank you for your message!');
+        })
+        .catch(() => {
+          console.log('Internal server error');
+          alert('Sorry, we seem to have run into an error');
+        });;
+    }else{
+      console.error('Invalid Message')
+      alert('Invalid Message: Message should be longer than 5 characters');
+    }
   };
 
   resetUserInputs = () => {
@@ -42,7 +76,7 @@ class Contact extends React.Component{
   };
 
   render() {
-    console.log('State: ', this.state);
+    const {errors} = this.state;
     return (
         <section>
           <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -94,7 +128,10 @@ class Contact extends React.Component{
                           placeholder="Your message..." 
                           aria-label="Your message..." 
                           value={this.state.message}
-                          onChange={this.handleChange}/>
+                          onChange={this.handleChange}
+                          />
+                          {errors.message.length > 0 && 
+                          <span className="error">{errors.founded}</span>}
                         <button className="btn text-white bg-red-600 hover:bg-orange-600 shadow" href="#0">Submit</button>
                       </div>
                       {/* Success message */}

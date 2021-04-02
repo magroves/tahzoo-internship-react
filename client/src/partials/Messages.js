@@ -33,7 +33,9 @@ class Suggestions extends React.Component{
                     {/* Section header */}
                     <div className="text-center pb-12 md:pb-16">
                         <h1 className="text-3xl md:text-4xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">
-                          <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-400">Website Suggestions / Messages</span>
+                          <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-400"
+                          >Website Suggestions / Messages
+                          </span>
                         </h1>
                         <div className="max-w-3xl mx-auto">
                             <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300"></div>
