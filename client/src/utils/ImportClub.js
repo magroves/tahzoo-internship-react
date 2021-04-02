@@ -139,7 +139,7 @@ class ImportClub extends React.Component {
                         onClick={() => {this.setShowModal(true)}}
                     >
                         <div className="">
-                        <h4 className="btn-sm text-gray-200 bg-red-700 hover:bg-orange-600 ml-3 float-right">Import Club</h4>
+                        <h4 className="btn-sm text-gray-200 bg-gray-700 hover:bg-gray-800 ml-3 float-right">Import Club</h4>
                         </div>
                     </button>
                     <div>
