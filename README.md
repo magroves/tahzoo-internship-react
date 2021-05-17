@@ -4,7 +4,9 @@ In this project, we used the MERN stack to make a very simple full-stack applica
 
 # How to Start project
 
-cd inside the server folder and use command - npm run dev (may need to npm install to begin)
+npm install inside both server and client folders
+
+cd inside the server folder and use command - npm run dev
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
